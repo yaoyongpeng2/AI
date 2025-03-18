@@ -163,5 +163,5 @@ def f(ham:str, eggs:str="eggs")->str:
     """
     print("Annotaions:",f.__annotations__)
     print("Arguments:",ham,eggs)
-    return ham +" and "+eggs
+    return f"{ham} and {eggs}"
 print(f("spam"))
