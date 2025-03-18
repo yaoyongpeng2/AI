@@ -69,6 +69,5 @@ for n in range(2,10):
         continue#循环本轮后面义务必要，直接下一轮
     print(f"found an odd number {n}")
 
-#pass statement is ignored
 
 #match statement to be added,after Class.

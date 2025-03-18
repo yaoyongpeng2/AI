@@ -134,3 +134,34 @@ print(list(range(*args)))#the same result as above
 #In the same fashion, dictionaries can deliver keyword arguments with the **-operator:
 d = {"voltage": "four million", "state": "bleedin' demised", "action": "VOOM"}
 parrot(**d)
+
+#4.9.6. Lambda Expressions
+# Semantically, they are just syntactic sugar for a normal function definition. 
+pairs=[(1,"one"),(2,"two"),(3,"three"),(4,"four")]
+pairs.sort(key=lambda pair:pair[1])
+print(pairs)#alphabitical order:[(4, 'four'), (1, 'one'), (3, 'three'), (2, 'two')]
+
+#4.9.7. Documentation Strings & 4.6. pass Statements
+# some conventions:
+# 1.The first line short, concise, begin with a capital letter and end with a period.
+# 2.If more lines, the second line should be blank
+# 3.The first non-blank line after the first line of the string determines the amount of indentation for the entire documentation string.
+def my_function():
+    """Do nothing, but document it.
+
+    No, really, it doesn't do anything.
+    """
+    pass
+
+print(my_function.__doc__)
+
+#4.9.8. Function Annotations
+def f(ham:str, eggs:str="eggs")->str:
+    """Demo annotations
+
+    for parameters and return value.
+    """
+    print("Annotaions:",f.__annotations__)
+    print("Arguments:",ham,eggs)
+    return ham +" and "+eggs
+print(f("spam"))
