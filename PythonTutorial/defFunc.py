@@ -115,3 +115,10 @@ kwd_only_arg(arg=3)
 combined_example(1, 2, kwd_only=3)  #√
 combined_example(1, standard=2, kwd_only=3) #√
 #combined_example(pos_only=1, standard=2, kwd_only=3)    #runtime TypeError:combined_example() got some positional-only arguments passed as keyword arguments: 'pos_only'
+
+#4.9.4. Arbitrary Argument Lists
+def concat(*args, sep="/"):
+    return sep.join(args)
+
+print(concat("earth", "mars", "venus"))
+print(concat("earth", "mars", "venus", sep="."))#*name parameters,can only be followed by keyword parameter.
