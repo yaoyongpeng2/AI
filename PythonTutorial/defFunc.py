@@ -57,7 +57,10 @@ parrot('a thousand', state='pushing up the daisies')  # 1 positional, 1 keyword
 #a final formal parameter of the form **name is present, it receives a dictionary (see Mapping Types — dict) 
 # #containing all keyword arguments except for those corresponding to a formal parameter. 
 #a formal parameter of the form *name which receives a tuple 
-# containing the positional arguments beyond the formal parameter list. (*name must occur before **name.) 
+# containing the positional arguments beyond the formal parameter list. 
+# (*name must occur before **name.) Any formal parameters which occur after the *args parameter are ‘keyword-only’ arguments, 
+# meaning that they can only be used as keywords rather than positional arguments.
+
 def cheeseshop(kind, *arguments, **keywords):
     print("-- Do you have any", kind, "?")
     print("-- I'm sorry, we're all out of", kind)
