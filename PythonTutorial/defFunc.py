@@ -122,3 +122,15 @@ def concat(*args, sep="/"):
 
 print(concat("earth", "mars", "venus"))
 print(concat("earth", "mars", "venus", sep="."))#*name parameters,can only be followed by keyword parameter.
+
+#-4.9.5. Unpacking Argument Lists
+#The reverse situation occurs when the arguments are already in a list or tuple but need to be unpacked for a function call 
+# requiring separate positional arguments. For instance, the built-in range() function expects separate start and stop arguments. 
+# If they are not available separately, write the function call with the *-operator to unpack the arguments out of a list or tuple:
+print(list(range(0,-100,-10)))
+args=[0,-100,-10]
+print(list(range(*args)))#the same result as above
+
+#In the same fashion, dictionaries can deliver keyword arguments with the **-operator:
+d = {"voltage": "four million", "state": "bleedin' demised", "action": "VOOM"}
+parrot(**d)
