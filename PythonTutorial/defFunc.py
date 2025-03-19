@@ -4,13 +4,13 @@ def fib(n):
     a,b=0,1
     result=[]
     while(a<n):
-        print(a,end=' ')
+    #    print(a,end=' ')
         result.append(a)
         a,b=b,a+b
-    print()
+    #print()
     return result
-
-print(fib(100))
+if __name__=="__main__":
+    print(fib(100))
 
 #-------------------------------4.9.1 Default Argument-------------------------------------------
 def ask_ok(prompt,retries=4,reminder="Please try again!"):
@@ -24,10 +24,10 @@ def ask_ok(prompt,retries=4,reminder="Please try again!"):
         if retries<0:
             raise ValueError("invalid user response")
         print(reminder)
-
-ask_ok('Do you really want to quit?')
-ask_ok('OK to overwrite the file?', 2)
-ask_ok('OK to overwrite the file?', 2, 'Come on, only yes or no!')
+if __name__=="__main__":
+    ask_ok('Do you really want to quit?')
+    ask_ok('OK to overwrite the file?', 2)
+    ask_ok('OK to overwrite the file?', 2, 'Come on, only yes or no!')
 
 
 #-------------------------------4.9.2 keyword argument------------------------------
@@ -38,12 +38,13 @@ def parrot(voltage, state='a stiff', action='voom', type='Norwegian Blue'):
     print("-- It's", state, "!")
 
 #valid calls
-parrot(1000)                                          # 1 positional argument
-parrot(voltage=1000)                                  # 1 keyword argument
-parrot(voltage=1000000, action='VOOOOOM')             # 2 keyword arguments
-parrot(action='VOOOOOM', voltage=1000000)             # 2 keyword arguments
-parrot('a million', 'bereft of life', 'jump')         # 3 positional arguments
-parrot('a thousand', state='pushing up the daisies')  # 1 positional, 1 keyword
+if __name__=="__main__":
+    parrot(1000)                                          # 1 positional argument
+    parrot(voltage=1000)                                  # 1 keyword argument
+    parrot(voltage=1000000, action='VOOOOOM')             # 2 keyword arguments
+    parrot(action='VOOOOOM', voltage=1000000)             # 2 keyword arguments
+    parrot('a million', 'bereft of life', 'jump')         # 3 positional arguments
+    parrot('a thousand', state='pushing up the daisies')  # 1 positional, 1 keyword
 
 
 #invalid calls
@@ -69,8 +70,9 @@ def cheeseshop(kind, *arguments, **keywords):
     print("-" * 40)#字符串乘法操作（仅支持字符串与整数相乘）
     for kw in keywords:
         print(kw, ":", keywords[kw])
-    
-cheeseshop("Limburger", "It's very runny, sir.",
+
+if __name__=="__main__":
+    cheeseshop("Limburger", "It's very runny, sir.",
            "It's really very, VERY runny, sir.",
            shopkeeper="Michael Palin",
            client="John Cleese",
@@ -101,45 +103,46 @@ def kwd_only_arg(*, arg):
 
 def combined_example(pos_only, /, standard, *, kwd_only):
     print(pos_only, standard, kwd_only)
+if __name__=="__main__":
+    standard_arg(2)         #√
+    standard_arg(arg=2)     #√
 
-standard_arg(2)         #√
-standard_arg(arg=2)     #√
+    pos_only_arg(1)         #√
+    #pos_only_arg(arg=1)    #runtime TypeError:pos_only_arg() got some positional-only arguments passed as keyword arguments: 'arg'
 
-pos_only_arg(1)         #√
-#pos_only_arg(arg=1)    #runtime TypeError:pos_only_arg() got some positional-only arguments passed as keyword arguments: 'arg'
+    #kwd_only_arg(3)         #runtime TypeError:kwd_only_arg() takes 0 positional arguments but 1 was given
+    kwd_only_arg(arg=3)
 
-#kwd_only_arg(3)         #runtime TypeError:kwd_only_arg() takes 0 positional arguments but 1 was given
-kwd_only_arg(arg=3)
-
-#combined_example(1, 2, 3)          #runtime TypeError:combined_example() takes 2 positional arguments but 3 were given
-combined_example(1, 2, kwd_only=3)  #√
-combined_example(1, standard=2, kwd_only=3) #√
-#combined_example(pos_only=1, standard=2, kwd_only=3)    #runtime TypeError:combined_example() got some positional-only arguments passed as keyword arguments: 'pos_only'
+    #combined_example(1, 2, 3)          #runtime TypeError:combined_example() takes 2 positional arguments but 3 were given
+    combined_example(1, 2, kwd_only=3)  #√
+    combined_example(1, standard=2, kwd_only=3) #√
+    #combined_example(pos_only=1, standard=2, kwd_only=3)    #runtime TypeError:combined_example() got some positional-only arguments passed as keyword arguments: 'pos_only'
 
 #-------------------4.9.4. Arbitrary Argument Lists-----------------------------------
 def concat(*args, sep="/"):
     return sep.join(args)
-
-print(concat("earth", "mars", "venus"))
-print(concat("earth", "mars", "venus", sep="."))#*name parameters,can only be followed by keyword parameter.
+if __name__=="__main__":
+    print(concat("earth", "mars", "venus"))
+    print(concat("earth", "mars", "venus", sep="."))#*name parameters,can only be followed by keyword parameter.
 
 #--------------------4.9.5. Unpacking Argument Lists-----------------------------------
 #The reverse situation occurs when the arguments are already in a list or tuple but need to be unpacked for a function call 
 # requiring separate positional arguments. For instance, the built-in range() function expects separate start and stop arguments. 
 # If they are not available separately, write the function call with the *-operator to unpack the arguments out of a list or tuple:
-print(list(range(0,-100,-10)))
-args=[0,-100,-10]
-print(list(range(*args)))#the same result as above
+if __name__=="_main_":
+    print(list(range(0,-100,-10)))
+    args=[0,-100,-10]
+    print(list(range(*args)))#the same result as above
 
-#In the same fashion, dictionaries can deliver keyword arguments with the **-operator:
-d = {"voltage": "four million", "state": "bleedin' demised", "action": "VOOM"}
-parrot(**d)
+    #In the same fashion, dictionaries can deliver keyword arguments with the **-operator:
+    d = {"voltage": "four million", "state": "bleedin' demised", "action": "VOOM"}
+    parrot(**d)
 
-#4.9.6. Lambda Expressions
-# Semantically, they are just syntactic sugar for a normal function definition. 
-pairs=[(1,"one"),(2,"two"),(3,"three"),(4,"four")]
-pairs.sort(key=lambda pair:pair[1])
-print(pairs)#alphabitical order:[(4, 'four'), (1, 'one'), (3, 'three'), (2, 'two')]
+    #4.9.6. Lambda Expressions
+    # Semantically, they are just syntactic sugar for a normal function definition. 
+    pairs=[(1,"one"),(2,"two"),(3,"three"),(4,"four")]
+    pairs.sort(key=lambda pair:pair[1])
+    print(pairs)#alphabitical order:[(4, 'four'), (1, 'one'), (3, 'three'), (2, 'two')]
 
 #4.9.7. Documentation Strings & 4.6. pass Statements
 # some conventions:
@@ -153,7 +156,7 @@ def my_function():
     """
     pass
 
-print(my_function.__doc__)
+my_function.__doc__
 
 #-----------------4.9.8. Function Annotations--------------------------------------
 def f(ham:str, eggs:str="eggs")->str:
@@ -164,4 +167,5 @@ def f(ham:str, eggs:str="eggs")->str:
     print("Annotaions:",f.__annotations__)
     print("Arguments:",ham,eggs)
     return f"{ham} and {eggs}"
-print(f("spam"))
+if __name__=="__main__":
+    f("spam")
