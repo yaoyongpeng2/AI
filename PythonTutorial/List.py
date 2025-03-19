@@ -1,4 +1,4 @@
-#3.1.2. Text
+#------------------------------------3.1.2. Text----------------------------------------------
 print("C:\some\name")#C:\some<Br>ame
 #not to interpret \ as special characters, use raw strings by adding an r before the first quote:
 print(r"C:\some\name")##C:\some\name
@@ -46,7 +46,7 @@ print(word[:2]+'py')
 
 print(len(word))
 
-#3.1.3. Lists
+#---------------------------------------------3.1.3. Lists-------------------------------------------------------
 #Any changes you make to the list through one variable will be seen through all other variables that refer to it.:
 rgb = ["Red", "Green", "Blue"]
 rgba = rgb
@@ -78,7 +78,7 @@ letters[:]=[]
 print(letters)
 
 
-#5.1. More on Lists
+#-----------------------------------5.1. More on Lists--------------------------------------------------
 fruits = ['orange', 'apple', 'pear', 'banana', 'kiwi', 'apple', 'banana']
 assert fruits.count("apple")==2, "谁动了我的苹果？"
 assert fruits.count("xxx")==0, "xxx哪来的？"
@@ -94,7 +94,7 @@ print(fruits.pop())#return the last,can print
 print(fruits)
 print(fruits.copy())#shallow copy：不是“阴影”拷贝，是浅拷贝，深拷贝示例：import copy newlist=copy.deepcopy(fruits)
 
-#5.1.1-5.1.2. Using Lists as Stacks & Queues
+#----------------------------5.1.1-5.1.2. Using Lists as Stacks & Queues--------------------------------------
 #To add an item to the top of the stack, use append(). 
 #To retrieve an item from the top of the stack, use pop() without an explicit index.
 # 间复杂度是O(1)
@@ -128,7 +128,8 @@ print(queue.popleft())                 # The first to arrive now leaves
 print(queue.popleft())                 # The second to arrive now leaves
 print(queue)
 
-#5.1.3. List Comprehensions,即列表推导式，通过 [表达式 for 变量 in 可迭代对象] 的形式，将循环和条件判断压缩到一行代码中，生成新列表。
+#---------------------------------------5.1.3. List Comprehensions-------------------------------------------------
+# 即列表推导式，通过 [表达式 for 变量 in 可迭代对象] 的形式，将循环和条件判断压缩到一行代码中，生成新列表。
 # 其核心逻辑是：​对可迭代对象中的每个元素应用表达式，并将结果收集到一个新列表中。
 squares = []
 for x in range(10):
@@ -187,7 +188,7 @@ from math import pi
 print([str(round(pi,i)) for i in range(6)]) #['3.0', '3.1', '3.14', '3.142', '3.1416', '3.14159']
 
 
-#5.1.4. Nested List Comprehensions
+#----------------------------------5.1.4. Nested List Comprehensions-------------------------------
 matrix = [
     [1, 2, 3, 4],
     [5, 6, 7, 8],
@@ -208,7 +209,7 @@ print(transposed)
 # zip会从每个可迭代对象中依次取出第一个元素，组成第一个元组，然后第二个元素组成第二个元组，依此类推。
 print(list(zip(*matrix)))#矩阵转置
 
-#5.2. The del statement
+#------------------------------5.2. The del statement----------------------------------------------
 a = [-1, 1, 66.25, 333, 333, 1234.5]
 del a[0]
 print(a)
