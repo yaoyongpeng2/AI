@@ -70,3 +70,4 @@ print(f"{'Manual String Formatting':-^40}")#[填充字符][对齐方式][总长�
 for x in range(1,11):
     #str.rjust()右对齐左填空， 
     print(repr(x).rjust(2),repr(x*x).rjust(3),repr(x*x*x).rjust(4))#默认空格分隔，换行结尾
+
