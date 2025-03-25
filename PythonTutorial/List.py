@@ -209,6 +209,12 @@ print(transposed)
 # zip会从每个可迭代对象中依次取出第一个元素，组成第一个元组，然后第二个元素组成第二个元组，依此类推。
 print(list(zip(*matrix)))#矩阵转置
 
+#嵌套表达式内外循环交换是否等价？举例如下：
+page = ["hello world", "goodbye moon"]
+#words=set(word for word in line.split() for line in page)#编译错误：未定义“line”，
+#所以把要用的变量尽量定义在外层循环
+words=set(word for line in page for word in line.split())
+print(words)
 #------------------------------5.2. The del statement----------------------------------------------
 a = [-1, 1, 66.25, 333, 333, 1234.5]
 del a[0]
