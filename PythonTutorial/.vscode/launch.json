@@ -6,7 +6,12 @@
             "type": "debugpy",
             "request": "launch",
             "program": "${file}",
-            "args": ["${workspaceFolder}/Class.py", "${file}", "-l", "5"], 
+            "args": [
+                "${workspaceFolder}/Class.py",
+                "${file}",
+                "-l",
+                "5"
+            ],
             "console": "integratedTerminal"
         }
     ]
